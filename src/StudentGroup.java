@@ -70,16 +70,16 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			Student s[] = new Student[students.length+1]; 
-			s[0] = student;
+			Student students1[] = new Student[students.length+1]; 
+			students1[0] = student;
 			for(int i=1;i<students.length+1;i++)
 			{
-				s[i] = students[i-1];
+				students1[i] = students[i-1];
 			}
 			
 			students = null;
 			
-			students = s;
+			students = students1;
 			
 		/*	students = new Student[students.length+1];
 			
@@ -94,19 +94,19 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			Student s[] = new Student[students.length+1];
+			Student students1[] = new Student[students.length+1];
 			
 			for(int i=0;i<students.length;i++)
 			{
-				s[i] = students[i];
+				students1[i] = students[i];
 			}
-			s[students.length] = student;
+			students1[students.length] = student;
 			
 			students = null;
 		/*	students = new Student[students.length+1];
 			setStudents(s);
 			*/
-			students = s;
+			students = students1;
 		}
 	}
 
