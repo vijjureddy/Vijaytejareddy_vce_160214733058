@@ -27,32 +27,28 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student[] getStudents() {
 		// Add your implementation here
 		return students;
+		//return null;
 	}
 
 	@Override
-	public void setStudents(Student[] students) throws IllegalArgumentException {
+	public void setStudents(Student[] students) {
 		// Add your implementation here
 		if(students==null)
-		{	
 			throw new IllegalArgumentException();
-		}
-		else
+		this.students = new Student[students.length];
+		for(int i=0;i<students.length;i++)
 		{
-			int n = students.length;
-			for(int i=0;i<n;i++)
-			{
-				this.students[i] = students[i];
-			}
+			this.students[i]=students[i];
 		}
 	}
 
 	@Override
-	public Student getStudent(int index) throws IllegalArgumentException {
+	public Student getStudent(int index) {
 		// Add your implementation here
-		if(index < 0 || index >=students.length)
+		if(index<0 || index>=students.length)
 			throw new IllegalArgumentException();
-		else
-		 return students[index];
+		return students[index];
+		//return null;
 	}
 
 	@Override
