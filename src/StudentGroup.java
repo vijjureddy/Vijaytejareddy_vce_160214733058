@@ -47,7 +47,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
-		if(students==null|| index<0 || index>=students.length){
+		if( index<0 || index>=students.length){
 			throw new IllegalArgumentException();
 		}
 		else
@@ -66,13 +66,14 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
-		Student[] students1 = new Student[students.length+1];;
 		if(students==null){
 			throw new IllegalArgumentException();
 		}
+		Student[] students1 = new Student[students.length+1];;
+		
 		 
 		students1[0]=student;
-		for(int i=1;i<=students1.length;i++){
+		for(int i=1;i<students1.length+1;i++){
 			students1[i]=students[i-1];
 		}
 		students =null;
@@ -104,13 +105,13 @@ public class StudentGroup implements StudentArrayOperation {
 		
 		Student[] students1 = new Student[students.length+1];
 		
-		for(int i=0; i<=index-1;i++){
+		for(int i=0; i<index;i++){
 			students1[i]=students[i];
 			
 		}
 		students1[index]=student;
-		for(int i=index+1;index<students1.length;i++){
-			students1[i]=students[i-1];
+		for(int i=index+1;index<students1.length+1;i++){
+			students1[i]=students[i];
 		}
 		students=null;
 		students=students1;
@@ -119,16 +120,18 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
-		if(students==null|| index<0 || index>=students.length){
+		if(index<0 || index>=students.length){
 			throw new IllegalArgumentException();
 		}
 		Student[] students1 = new Student[students.length-1];
-		 
-		for(int i=0; i<=index-1;i++){
-			students1[i]=students[i];
+		 int k=0;
+		for(int i=0; i<=index;i++){
+			students1[k]=students[i];
+			k++;
 			}
 		for(int i=index+1;i<students1.length;i++){
-			students1[i-1]=students[i];
+			students1[k]=students[i];
+			k++;
 		}
 		students=null;
 		students=students1;
