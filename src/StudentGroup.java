@@ -382,18 +382,18 @@ public class StudentGroup implements StudentArrayOperation {
 				}
 			}
 			
-			Student s[] = new Student[length];
+			Student students1[] = new Student[length];
 			int k=0;
 			for(int i=0;i<students.length;i++)
 			{
 				if(students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate) )
 				{
-					s[k] = students[i];
+					students1[k] = students[i];
 					k++;
 				}
 			}
 			
-		return s;
+		return students1;
 	}
 
 	@Override
